@@ -1,0 +1,489 @@
+:root{
+    --cream: #FBF5E6;
+    --cream-deep: #F2E6C9;
+    --gold: #D9A521;
+    --gold-light: #F2C94C;
+    --bronze: #9C6B33;
+    --bronze-deep: #6B4423;
+    --brown: #4A2C17;
+    --brown-text: #3A2414;
+    --red: #E63946;
+    --green: #3C7A3E;
+    --card-line: rgba(74,44,23,0.14);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--cream);
+    font-family:'Space Grotesk', sans-serif;
+    color:var(--brown-text);
+  }
+  .section{
+    padding:64px 20px;
+    max-width:760px;
+    margin:0 auto;
+  }
+  img, svg{ max-width:100%; }
+  @media (max-width:600px){
+    .section{ padding:44px 16px; }
+    .hero{ padding:40px 16px 48px; }
+  }
+
+  /* ================= HERO ================= */
+  .hero{
+    position:relative;
+    padding:56px 20px 70px;
+    text-align:center;
+    overflow:hidden;
+    background:
+      radial-gradient(ellipse 900px 520px at 50% -12%, rgba(242,201,76,0.45), transparent 60%),
+      linear-gradient(180deg, var(--cream) 0%, #fff 100%);
+  }
+  .hero-motif{
+    position:absolute;
+    width:340px; height:340px;
+    border:1px solid rgba(156,107,51,0.18);
+    transform:translate(-50%,-50%) rotate(45deg);
+    border-radius:36px;
+  }
+  .hero-motif.m1{ top:6%; left:8%; width:140px; height:140px; }
+  .hero-motif.m2{ top:14%; right:6%; width:200px; height:200px; }
+  @media (max-width:600px){ .hero-motif{ display:none; } }
+
+  .logo-row{
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:18px;
+    margin:0 auto 10px;
+    max-width:420px;
+  }
+  .logo-row::before{
+    content:"";
+    position:absolute;
+    inset:-30px;
+    background:radial-gradient(circle, rgba(242,201,76,0.5) 0%, rgba(242,201,76,0) 70%);
+    border-radius:50%;
+    animation:pulse 4.5s ease-in-out infinite;
+    z-index:0;
+  }
+  @media (prefers-reduced-motion: reduce){ .logo-row::before{ animation:none; } }
+  @keyframes pulse{
+    0%,100%{ transform:scale(1); opacity:0.75; }
+    50%{ transform:scale(1.12); opacity:1; }
+  }
+  .logo-row img{
+    position:relative;
+    z-index:1;
+    height:108px;
+    width:auto;
+    object-fit:contain;
+    filter:drop-shadow(0 8px 18px rgba(74,44,23,0.25));
+  }
+  .logo-x{
+    position:relative;
+    z-index:1;
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-style:italic;
+    font-size:20px;
+    color:var(--bronze);
+    flex-shrink:0;
+  }
+  @media (max-width:480px){
+    .logo-row img{ height:82px; }
+    .logo-row{ gap:12px; }
+  }
+  .eyebrow{
+    font-size:13px;
+    letter-spacing:0.16em;
+    color:var(--bronze-deep);
+    font-weight:600;
+    margin:2px 0 10px;
+  }
+  h1.title{
+    font-family:'Fraunces', serif;
+    font-weight:800;
+    font-size:clamp(26px, 5.6vw, 46px);
+    line-height:1.12;
+    margin:0 0 18px;
+    background:linear-gradient(100deg, var(--bronze-deep) 0%, var(--gold) 42%, var(--gold-light) 58%, var(--bronze-deep) 100%);
+    -webkit-background-clip:text;
+    background-clip:text;
+    -webkit-text-fill-color:transparent;
+  }
+  .prolog{
+    font-size:15.5px;
+    line-height:1.7;
+    color:var(--bronze-deep);
+    max-width:540px;
+    margin:0 auto 8px;
+  }
+  .prolog strong{ color:var(--brown); }
+  .salam{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:16px;
+    color:var(--brown);
+    margin-top:16px;
+  }
+
+  /* ================= SUPPORTING LOGOS ================= */
+  .support-strip{
+    text-align:center;
+    padding:32px 20px 40px;
+    max-width:760px;
+    margin:0 auto;
+  }
+  .support-label{
+    font-size:11px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--bronze);
+    margin-bottom:16px;
+  }
+  .support-logos{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:26px;
+    flex-wrap:wrap;
+    row-gap:18px;
+  }
+  .support-logos img{
+    height:50px;
+    width:auto;
+    object-fit:contain;
+    filter:drop-shadow(0 4px 10px rgba(74,44,23,0.18));
+  }
+  @media (max-width:480px){
+    .support-logos{ gap:18px; }
+    .support-logos img{ height:40px; }
+  }
+
+
+  /* ================= COUNTDOWN ================= */
+  .countdown{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    margin:34px auto 10px;
+    flex-wrap:wrap;
+  }
+  .cd-box{
+    background:linear-gradient(165deg,#fff 0%, var(--cream-deep) 100%);
+    border:1px solid var(--card-line);
+    border-radius:16px;
+    padding:16px 10px;
+    min-width:74px;
+    text-align:center;
+  }
+  .cd-num{
+    font-family:'Fraunces', serif;
+    font-weight:800;
+    font-size:clamp(24px, 5vw, 34px);
+    color:var(--brown);
+    line-height:1;
+  }
+  .cd-label{
+    font-size:11px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--bronze);
+    margin-top:6px;
+  }
+  .countdown-done{
+    font-family:'Fraunces', serif;
+    font-size:20px;
+    color:var(--green);
+    font-weight:700;
+    margin:20px 0 0;
+  }
+
+  @keyframes bob{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(6px); } }
+
+  /* ================= SECTION HEAD ================= */
+  .section-title{
+    font-family:'Fraunces', serif;
+    font-weight:700;
+    font-size:26px;
+    color:var(--brown);
+    text-align:center;
+    margin:0 0 8px;
+  }
+  .section-sub{
+    text-align:center;
+    color:var(--bronze);
+    font-size:13.5px;
+    margin:0 0 30px;
+  }
+
+  /* ================= INFO CARD ================= */
+  .info-card{
+    background:#fff;
+    border:1px solid var(--card-line);
+    border-radius:20px;
+    padding:8px;
+  }
+  .info-row{
+    display:flex;
+    gap:16px;
+    align-items:flex-start;
+    padding:18px 16px;
+    border-bottom:1px solid var(--card-line);
+  }
+  .info-row:last-child{ border-bottom:none; }
+  .info-icon{
+    width:40px; height:40px;
+    border-radius:12px;
+    background:linear-gradient(135deg, var(--gold-light), var(--gold));
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+  }
+  .info-icon svg{ width:20px; height:20px; stroke:var(--brown); }
+  .info-label{
+    font-size:12px;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    color:var(--bronze);
+    font-weight:600;
+    margin-bottom:3px;
+  }
+  .info-value{
+    font-size:15px;
+    color:var(--brown-text);
+    line-height:1.5;
+    font-weight:500;
+  }
+  .maps-link{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    margin-top:8px;
+    font-size:13.5px;
+    font-weight:600;
+    color:var(--bronze-deep);
+    text-decoration:none;
+    border-bottom:1.5px solid var(--gold);
+    padding-bottom:1px;
+  }
+  .maps-link svg{ width:14px; height:14px; }
+
+  /* ================= DONASI (progress bar in hero) ================= */
+  .donasi-card{
+    background:#fff;
+    border:1px solid var(--card-line);
+    border-radius:20px;
+    padding:22px 22px 20px;
+    text-align:left;
+    max-width:440px;
+    margin:30px auto 0;
+  }
+  .donasi-head{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    gap:10px;
+    margin-bottom:10px;
+    flex-wrap:wrap;
+  }
+  .donasi-head-label{
+    font-size:12px;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    color:var(--bronze);
+    font-weight:600;
+  }
+  .donasi-percent{
+    font-family:'Fraunces', serif;
+    font-weight:800;
+    font-size:20px;
+    color:var(--brown);
+  }
+  .bar-track{
+    width:100%;
+    height:14px;
+    border-radius:999px;
+    background:var(--cream-deep);
+    overflow:hidden;
+  }
+  .bar-fill{
+    height:100%;
+    width:0%;
+    border-radius:999px;
+    background:linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 100%);
+    transition:width 0.8s ease;
+  }
+  .donasi-amount{
+    font-family:'Fraunces', serif;
+    font-weight:700;
+    font-size:20px;
+    color:var(--bronze-deep);
+    margin:12px 0 2px;
+  }
+  .donasi-target{ font-size:13px; color:var(--bronze); }
+  .donasi-note{
+    font-size:12px;
+    color:#B79A6E;
+    margin-top:10px;
+    line-height:1.6;
+  }
+
+  /* ================= BUTTONS ================= */
+  .btn-primary{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    border:none;
+    border-radius:12px;
+    padding:15px 28px;
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:700;
+    font-size:15px;
+    cursor:pointer;
+    text-decoration:none;
+    background:linear-gradient(120deg, var(--gold) 0%, var(--gold-light) 100%);
+    color:var(--brown);
+    box-shadow:0 8px 22px rgba(217,165,33,0.3);
+    transition:transform 0.12s ease, box-shadow 0.12s ease;
+  }
+  .btn-primary:hover{ transform:translateY(-2px); box-shadow:0 10px 26px rgba(217,165,33,0.4); }
+  .btn-primary svg{ width:18px; height:18px; }
+
+  .btn-secondary{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    border:1px solid var(--card-line);
+    border-radius:12px;
+    padding:13px 22px;
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:600;
+    font-size:14px;
+    cursor:pointer;
+    text-decoration:none;
+    background:#fff;
+    color:var(--bronze-deep);
+    transition:background 0.12s ease, border-color 0.12s ease;
+  }
+  .btn-secondary:hover{ background:var(--cream); border-color:var(--gold); }
+  .btn-secondary svg{ width:16px; height:16px; }
+
+  /* ================= KONFIRMASI ================= */
+  .confirm-card{
+    background:linear-gradient(165deg, var(--brown) 0%, var(--bronze-deep) 100%);
+    border-radius:22px;
+    padding:40px 26px;
+    text-align:center;
+    color:#F5E9CE;
+  }
+  .confirm-card h3{
+    font-family:'Fraunces', serif;
+    font-size:24px;
+    margin:0 0 8px;
+    color:#fff;
+  }
+  .confirm-card p{
+    font-size:14px;
+    color:#E8D6AE;
+    max-width:420px;
+    margin:0 auto 22px;
+    line-height:1.6;
+  }
+
+  /* ================= REKENING ================= */
+  .rekening-card{
+    background:#fff;
+    border:1px solid var(--card-line);
+    border-radius:20px;
+    padding:6px 24px;
+    margin-top:18px;
+  }
+  .rekening-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:14px;
+    flex-wrap:wrap;
+    padding:18px 0;
+    border-bottom:1px solid var(--card-line);
+  }
+  .rekening-row:last-child{ border-bottom:none; }
+  .rekening-left{ text-align:left; }
+  .rekening-bank{ font-size:12px; color:var(--bronze); letter-spacing:0.05em; text-transform:uppercase; margin-bottom:4px; }
+  .rekening-num{
+    font-family:'Fraunces', serif;
+    font-weight:700;
+    font-size:21px;
+    color:var(--brown);
+    letter-spacing:0.02em;
+  }
+  .rekening-an{ font-size:13px; color:var(--bronze-deep); margin-top:2px; }
+  .copy-btn{
+    border:1px solid var(--card-line);
+    background:var(--cream);
+    color:var(--bronze-deep);
+    border-radius:10px;
+    padding:10px 16px;
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:600;
+    font-size:13px;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    gap:6px;
+    transition:background 0.12s ease;
+  }
+  .copy-btn:hover{ background:#fff; border-color:var(--gold); }
+  .copy-btn svg{ width:14px; height:14px; }
+  .copy-btn.copied{ background:var(--green); color:#fff; border-color:var(--green); }
+
+  /* ================= KONTAK ================= */
+  .kontak-grid{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-top:18px;
+  }
+  .kontak-grid .kontak-btn{ flex:1 1 220px; }
+  @media (max-width:520px){ .kontak-grid .kontak-btn{ flex:1 1 100%; } }
+  .kontak-btn{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    background:#fff;
+    border:1px solid var(--card-line);
+    border-radius:14px;
+    padding:14px 16px;
+    text-decoration:none;
+    color:var(--brown-text);
+    transition:border-color 0.12s ease, background 0.12s ease;
+  }
+  .kontak-btn:hover{ border-color:var(--gold); background:var(--cream); }
+  .kontak-icon{
+    width:36px; height:36px;
+    border-radius:10px;
+    background:#E9F5EA;
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+  }
+  .kontak-icon svg{ width:18px; height:18px; stroke:var(--green); }
+  .kontak-name{ font-size:11px; color:var(--bronze); text-transform:uppercase; letter-spacing:0.04em; }
+  .kontak-num{ font-size:14px; font-weight:600; }
+
+  footer{
+    text-align:center;
+    padding:36px 20px 46px;
+    font-size:12.5px;
+    color:#B79A6E;
+  }
+  footer .footer-title{
+    font-family:'Fraunces', serif;
+    font-size:15px;
+    color:var(--bronze-deep);
+    margin-bottom:4px;
+  }
